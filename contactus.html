@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us • CREDeX</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: rgb(1, 2, 2);
+      color: #bbf7d0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .logo:hover {
+      color: #0fd419;
+      text-shadow: 2px 2px 5px rgb(111, 225, 44);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      padding: 6px 8px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    nav ul li a:hover {
+      background: #0fd419;
+      color: #030303;
+      border-radius: 4px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 120px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0fd419;
+    }
+
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      background: #011a11;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #023020;
+    }
+
+    .contact-info {
+      flex: 1 1 300px;
+      padding: 20px;
+      background: #02140d;
+      border-radius: 10px;
+      border: 1px solid #033020;
+    }
+
+    .contact-info h3 {
+      margin-top: 0;
+      color: #0fd419;
+    }
+
+    .contact-info p {
+      margin: 8px 0;
+    }
+
+    .contact-form {
+      flex: 1 1 350px;
+      padding: 20px;
+      background: #02140d;
+      border-radius: 10px;
+      border: 1px solid #033020;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #044a2a;
+      background: #011a11;
+      color: #bbf7d0;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background: #0fd419;
+      border: none;
+      padding: 12px 18px;
+      font-size: 15px;
+      font-weight: bold;
+      color: #031007;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid #033020;
+      color: #46625b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="logo">CREDeX</a>
+    <nav>
+      <ul>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="index.html#trading">Trading</a></li>
+        <li><a href="index.html#investments">Investments</a></li>
+        <li><a href="index.html#crypto">Crypto</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Contact Us</h1>
+
+    <div class="contact-wrapper">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p><strong>Email:</strong> support@credex.com</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+        <p><strong>Address:</strong><br>
+          CREDeX HQ,<br>
+          Mumbai, India
+        </p>
+        <p><strong>Working Hours:</strong><br>
+          Mon–Fri: 9 AM – 6 PM IST
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h3 style="color:#0fd419;">Send Us a Message</h3>
+        <form>
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required />
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Write your message here..." required></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    CREDeX © 2025
+  </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+/* h1{ color:red;
+
+} */
+  /* *{
+    color: purple;
+      }   
+#para1{
+    color:blue;
+} */
+/* type selector : h1 */
+/* universal selector: * */
+.para{
+    border: 5px;
+    background-color: limegreen;
+}
+p{
+    background-color:blueviolet;
+}
+#subah p{
+    color: yellow;
+}
+#dopahar > p {
+    color: brown;
+}
+h5 :hover{
+    color: rgb(49, 196, 229);
+}
+input:focus{
+    border: 3px solid red;
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investments • CREDeX</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: rgb(1, 2, 2);
+      color: #bbf7d0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .logo:hover {
+      color: #0fd419;
+      text-shadow: 2px 2px 5px rgb(111, 225, 44);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      padding: 6px 8px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    nav ul li a:hover {
+      background: #0fd419;
+      color: #030303;
+      border-radius: 4px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 120px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0fd419;
+    }
+
+    .investment-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .investment-box {
+      background: #011a11;
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid #023020;
+    }
+
+    .investment-box h3 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #0fd419;
+    }
+
+    .investment-box p {
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+
+    .investment-box button {
+      background: #0fd419;
+      border: none;
+      padding: 10px 16px;
+      font-size: 15px;
+      font-weight: bold;
+      color: #031007;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .investment-box button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid #033020;
+      color: #46625b;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">CREDeX</a>
+    <nav>
+      <ul>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="index.html#trading">Trading</a></li>
+        <li><a href="index.html#investments">Investments</a></li>
+        <li><a href="index.html#crypto">Crypto</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Investment Plans</h1>
+
+    <div class="investment-wrapper">
+
+      <!-- Plan 1 -->
+      <div class="investment-box">
+        <h3>Starter Investment Plan</h3>
+        <p><strong>Minimum Investment:</strong> ₹5,000</p>
+        <p><strong>Expected Returns:</strong> 6–8% annually</p>
+        <p><strong>Risk Level:</strong> Low</p>
+        <p>
+          Perfect for beginners entering the investment world. 
+          This plan focuses on stability, long-term security, and low-volatile assets.
+        </p>
+        <button>Invest Now</button>
+      </div>
+
+      <!-- Plan 2 -->
+      <div class="investment-box">
+        <h3>Growth Investment Plan</h3>
+        <p><strong>Minimum Investment:</strong> ₹25,000</p>
+        <p><strong>Expected Returns:</strong> 12–16% annually</p>
+        <p><strong>Risk Level:</strong> Medium</p>
+        <p>
+          A balanced portfolio designed for growing wealth steadily through diversified modern assets.
+        </p>
+        <button>Invest Now</button>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="investment-box">
+        <h3>Advanced High-Yield Plan</h3>
+        <p><strong>Minimum Investment:</strong> ₹1,00,000</p>
+        <p><strong>Expected Returns:</strong> 18–25% annually</p>
+        <p><strong>Risk Level:</strong> High</p>
+        <p>
+          Suitable for experienced investors seeking aggressive growth and higher-risk opportunities.
+        </p>
+        <button>Invest Now</button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    CREDeX © 2025
+  </footer>
+
+</body>
+</html>

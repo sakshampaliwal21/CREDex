@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Table Example</title>
+  
+</head>
+<body>
+        <label>title</label>
+        <br>
+            <input type = "radio" id ="Mr" name ="title" value="Mr"><label>Mr</label>
+            <input type = "radio" id ="Ms" name ="title" value="Ms"><label>Ms</label>
+            <input type = "radio" id ="Mrs" name ="title" value="Mrs"><label>Mrs</label>
+            <br>
+            <label>fullname</label>
+            <br>
+            <input type="text" id ="fullname" name="fullname" required>
+            <br>
+            <label>email</label>
+            <br>
+            <input type="email" id ="email" name="email" required>
+            <br>
+            <label>password</label>
+            <br>
+            <input type= "password" id ="password" name="password" required>
+            <br>
+            <label>Card Type</label>
+        <br><br>
+        <select name="card_type" id="card_type" required>
+            <option value="visa" >Visa</option>
+            <option value="mastercard">Mastercard</option>
+            <option value="rupay">Rupay</option>
+            </select>
+            <br><br>
+            
+            <label for="card_number">Card number</label>
+            <br><br>
+            <input type="number" id="card_number" name="card_number" required>
+            <br><br>
+            <label for="expiry">Expiry date<label>
+            <br><br>
+            <input type="date" id="expiry" name="expiry" required>
+            <br><br>
+            <button>SUBMIT</button>

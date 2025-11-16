@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trading • CREDeX</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: rgb(1, 2, 2);
+      color: #bbf7d0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .logo:hover {
+      color: #0fd419;
+      text-shadow: 2px 2px 5px rgb(111, 225, 44);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      padding: 6px 8px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    nav ul li a:hover {
+      background: #0fd419;
+      color: #030303;
+      border-radius: 4px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 120px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0fd419;
+    }
+
+    .trading-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .trading-box {
+      background: #011a11;
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid #023020;
+    }
+
+    .trading-box h3 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #0fd419;
+    }
+
+    .trading-box p {
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+
+    .trading-box button {
+      background: #0fd419;
+      border: none;
+      padding: 10px 16px;
+      font-size: 15px;
+      font-weight: bold;
+      color: #031007;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .trading-box button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid #033020;
+      color: #46625b;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">CREDeX</a>
+    <nav>
+      <ul>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="index.html#trading">Trading</a></li>
+        <li><a href="index.html#investments">Investments</a></li>
+        <li><a href="index.html#crypto">Crypto</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Trading Services</h1>
+
+    <div class="trading-wrapper">
+
+      <!-- Trading Option 1 -->
+      <div class="trading-box">
+        <h3>Stock Market Trading</h3>
+        <p><strong>Type:</strong> Equity & Derivatives</p>
+        <p><strong>Risk Level:</strong> Medium–High</p>
+        <p>
+          Buy, sell, and manage stocks with real-time market support.  
+          Perfect for both beginners and experienced traders.
+        </p>
+        <button>Start Trading</button>
+      </div>
+
+      <!-- Trading Option 2 -->
+      <div class="trading-box">
+        <h3>Forex Trading</h3>
+        <p><strong>Type:</strong> Currency Pairs</p>
+        <p><strong>Risk Level:</strong> High</p>
+        <p>
+          Trade major global currencies with tight spreads  
+          and fast execution on the CREDeX trading network.
+        </p>
+        <button>Start Trading</button>
+      </div>
+
+      <!-- Trading Option 3 -->
+      <div class="trading-box">
+        <h3>Commodities Trading</h3>
+        <p><strong>Type:</strong> Gold, Silver, Crude Oil</p>
+        <p><strong>Risk Level:</strong> Medium</p>
+        <p>
+          Diversify your portfolio with commodity assets  
+          and hedge against inflation with physical-value markets.
+        </p>
+        <button>Start Trading</button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    CREDeX © 2025
+  </footer>
+
+</body>
+</html>

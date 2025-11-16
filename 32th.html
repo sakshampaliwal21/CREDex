@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex</title>
+  <style>
+    .outer{
+         display:flex; /*You turn .container into a flex container,its direct children become flex items that follow flexbox rules */
+        width:400px;
+        height:400px;
+        background-color : tomato;
+        flex-direction: row-reverse; /*row | row-reverse | column | column-reverse;*/
+        justify-content:space-around;
+        flex:wrap;
+        align-items:flex-end ;
+        align-content: space-around;
+        
+        
+    }
+    .box{width:50px;
+        height: 50px;
+        background-color: limegreen;
+        border:2px solid black;
+        
+    }
+    /* flex-start: Items align to the left side of the container.
+       flex-end: Items align to the right side of the container.
+       center: Items align at the center of the container.
+       space-between:Items are spread out ,first item at the start, last item at the end
+       space-around: Equal space around each item, but that means outer edges have half the space compared to the space between items.
+       space-evenly:Spaces items with equal gaps between and outside items
+       For example, justify-content: flex-end; will move the frog to the right.
+       row: Items are placed the same as the text direction.
+       row-reverse: Items are placed opposite to the text direction.
+       column: Items are placed top to bottom.
+       column-reverse: Items are placed bottom to top.*/
+  </style>
+ 
+</head>
+<body>
+    <div class="outer">
+      <div class ="box">1</div>
+      <div class ="box">2</div>
+      <div class ="box">3</div>
+      <div class ="box">4</div>
+      <div class ="box">5</div>
+      
+
+
+    </div>
+    
+
+</body>
+</html>

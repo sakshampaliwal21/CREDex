@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CREDeX - Redesigned</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: rgb(1,2,2);
+      color: #bbf7d0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: black;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      z-index: 999;
+      box-shadow: 0px 2px 8px rgba(0, 255, 100, 0.2);
+    }
+
+    /* NEW: circular logo image */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0fd419;
+      box-shadow: 0px 0px 6px rgba(15,212,25,0.4);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .logo:hover {
+      color: #0fd419;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 5px;
+      transition: 0.2s;
+    }
+
+    nav ul li a:hover {
+      background: #0fd419;
+      color: #000;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-top: 120px;
+      font-size: 32px;
+      color: #0fd419;
+    }
+
+    /* HERO */
+    .hero {
+      margin-top: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 40px;
+      background: linear-gradient(to right, #011a11, #01331d);
+      border-radius: 18px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 15px rgba(15, 212, 25, 0.25);
+    }
+
+    .hero img {
+      width: 55%;
+      border-radius: 15px;
+      box-shadow: 0px 0px 15px rgba(0,255,100,0.2);
+    }
+
+    .hero-text {
+      max-width: 400px;
+    }
+
+    .hero-text h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      color: #0fd419;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .cta-btn {
+      background: #09740f;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* WHY BOXES */
+    .why-section {
+      max-width: 1100px;
+      margin: 60px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    .why-box {
+      background: #011a11;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 0px 12px rgba(0,255,100,0.1);
+      border-left: 4px solid #0fd419;
+    }
+
+    /* PORTFOLIO */
+    .portfolio-cards {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #011a11;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #03331f;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #0fd419;
+      box-shadow: 0 0 12px rgba(15,212,25,0.3);
+    }
+
+    /* TEAM */
+    .team-grid {
+      max-width: 900px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 20px;
+    }
+
+    .team-card {
+      background: #011a11;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid #022015;
+    }
+
+    .team-card:hover{
+      transform: translateY(-5px);
+      border-color: #0fd419;
+      box-shadow: 0 0 12px rgba(15,212,25,0.3);
+    }
+
+    /* APP DOWNLOAD */
+    .app-banner {
+      margin-top: 60px;
+      background: #13711b;
+      padding: 50px;
+      border-radius: 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .app-banner img {
+      width: 300px;
+      border-radius: 18px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      padding: 20px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="data:image/jpeg;base64,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" class="logo-img" alt="CREDeX Logo" />
+      <a class="logo">CREDeX</a>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="trading.html">Trading</a></li>
+        <li><a href="investments.html">Investments</a></li>
+        <li><a href="crypto.html">Crypto</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h2 class="section-title">Empowering the Next Generation of Founders</h2>
+
+  <section class="hero">
+    <img src="https://thumbs.dreamstime.com/b/bitcoin-price-appreciation-concept-illustration-green-arrow-alongside-silver-paper-forex-chart-points-to-upward-trend-385251512.jpg" />
+    <div class="hero-text">
+      <h1>Backing New Innovators</h1>
+      <p>CREDeX invests in early-stage fintech & crypto startups building the future.</p>
+      <button class="cta-btn">Apply Now</button>
+    </div>
+  </section>
+
+  <section class="why-section">
+    <div class="why-box">
+      <h3>Why CREDeX?</h3>
+      <p>Capital • Community • Strategy • Network</p>
+      <ul>
+        <li>Seed & Pre-seed funding</li>
+        <li>Growth support</li>
+        <li>Founder Network</li>
+      </ul>
+    </div>
+  </section>
+
+  <h2 class="section-title">Portfolio</h2>
+  <section class="portfolio-cards">
+    <div class="card"><h3>PayX</h3><p>Payments infrastructure simplified.</p></div>
+    <div class="card"><h3>BlockFiX</h3><p>Secure tools for DeFi risk.</p></div>
+    <div class="card"><h3>DataFlow</h3><p>Fast data for finance.</p></div>
+  </section>
+
+  <h2 class="section-title">Team</h2>
+  <section class="team-grid">
+    <div class="team-card"><strong>Saksham Paliwal</strong><br>Founder</div>
+    <div class="team-card"><strong>H. Paliwal</strong><br>Investments Lead</div>
+    <div class="team-card"><strong>R. paliwal</strong><br>Ops & Growth</div>
+  </section>
+
+  <section class="app-banner">
+    <img src="images/videoframe_3732 (1).png" />
+    <div>
+      <h1 style="color:black">Optimize your finances</h1>
+      <p>Download the app today</p>
+      <div style="display:flex; gap:15px;">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" width="160" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" width="160" />
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">CREDeX © 2025</footer>
+
+</body>
+</html>

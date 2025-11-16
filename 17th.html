@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Table Example</title>
+  <style>
+    table { 
+      border-collapse: collapse; /* Merges adjacent borders */
+      margin: 50px auto; /* Centers the table on the page */
+      width: 50%; /* Sets table width */
+      text-align: center; /* Centers text in cells */
+      
+    }
+    th, td { 
+      border: 2px solid black; /* Cell borders */
+      padding: 9px; /* Cell padding */
+      
+    }
+    thead {
+      background-color: lightblue; /* Header background color */
+    }
+  </style>
+</head>
+<body>
+  <h2>Student Table Example</h2>
+  <table >
+    <!-- thead groups header rows -->
+    <thead>
+      <tr> <!-- tr = table row -->
+        <th>Roll No</th> <!-- th = table header -->
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+
+    <!-- tbody contains actual data rows -->
+    <tbody>
+      <tr> <!-- tr = row -->
+        <td>1</td> <!-- td = table data cell -->
+        <td>Amit</td>
+        <td>21</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Neha</td>
+        <td>19</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Raj</td>
+        <td>22</td>
+      </tr>
+    </tbody>
+  </table>
+  
+</body>
+</html>

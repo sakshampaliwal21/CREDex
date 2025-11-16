@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NovaFund — Ventures & Innovation</title>
+  <meta name="description" content="NovaFund Ventures — investing in founders building next‑gen fintech & Web3" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Roboto,"Helvetica Neue",Arial;
+      line-height:1.45;
+      color:#e5fbe0;
+      background:#000;
+    }
+    a{text-decoration:none;color:inherit}
+
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+
+    header{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:700;font-size:18px}
+    .logo{
+      width:44px;height:44px;border-radius:10px;
+      background:linear-gradient(135deg,#16a34a,#065f46);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:800;
+      box-shadow:0 6px 16px rgba(34,197,94,0.3);
+    }
+    nav{display:flex;gap:18px;align-items:center}
+    .nav-link{font-weight:600;color:#bbf7d0;padding:8px 10px;border-radius:8px}
+    .nav-link:hover{background:rgba(34,197,94,0.1)}
+    .nav-cta{
+      background:#16a34a;color:#000;padding:10px 14px;border-radius:10px;font-weight:700;
+      box-shadow:0 8px 24px rgba(34,197,94,0.18);
+    }
+
+    .menu-btn{display:none;background:none;border:none;font-size:20px;color:#22c55e}
+    @media(max-width:820px){nav{display:none}.menu-btn{display:block}}
+
+    /* HERO */
+    .hero{margin-top:18px;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{
+      background:linear-gradient(180deg,#0a0f0a,#0d1b0d);
+      border-radius:16px;padding:36px;
+      box-shadow:0 20px 50px rgba(34,197,94,0.1);
+    }
+    .eyebrow{background:#064e3b;color:#6ee7b7;padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px}
+    h1{font-size:34px;margin:14px 0 8px;color:#bbf7d0}
+    p.lead{color:#94d9a7;margin-bottom:20px}
+
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:12px;font-weight:700;border:0;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,#16a34a,#4ade80);color:#000}
+    .btn-outline{
+      background:transparent;border:1px solid #134e4a;color:#a7f3d0;
+    }
+
+    .stats{display:flex;gap:18px;margin-top:18px}
+    .stat{background:#0d1b0d;padding:14px;border-radius:12px;min-width:120px;text-align:center;color:#d1fae5}
+    .stat strong{display:block;font-size:18px;color:#4ade80}
+
+    .panel{
+      border-radius:16px;padding:22px;
+      background:linear-gradient(180deg,#111,#000);
+      color:#d1fae5;
+      box-shadow:0 20px 40px rgba(34,197,94,0.15);
+    }
+    .apply-btn{margin-top:12px;background:#22c55e;border-radius:12px;padding:10px 12px;font-weight:700;border:0;color:#000;cursor:pointer}
+
+    /* PORTFOLIO */
+    .section{margin:56px 0}
+    .section h2{font-size:22px;margin-bottom:8px;color:#bbf7d0}
+    .filters{display:flex;gap:8px;margin-bottom:18px}
+    .chip{
+      padding:8px 12px;border-radius:999px;background:#064e3b;color:#6ee7b7;font-weight:700;cursor:pointer
+    }
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:#0d1b0d;padding:18px;border-radius:12px;
+      box-shadow:0 10px 30px rgba(34,197,94,0.08);
+      transition:transform .22s, box-shadow .22s;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 22px 40px rgba(34,197,94,0.18)}
+    .card .title{font-weight:700;margin-bottom:6px;color:#bbf7d0}
+    .card .desc{font-size:13px;color:#a3e9c3;margin-bottom:12px}
+    .pill{padding:6px 8px;background:#022c22;border-radius:8px;font-size:12px;color:#6ee7b7;font-weight:700}
+
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.grid{grid-template-columns:1fr}}
+
+    /* TEAM */
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .person{background:#0d1b0d;padding:14px;border-radius:12px;text-align:center;box-shadow:0 8px 20px rgba(34,197,94,0.08)}
+    .avatar{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#16a34a,#4ade80);color:#000;font-weight:800;font-size:20px;display:flex;justify-content:center;align-items:center;margin:0 auto 10px}
+    @media(max-width:820px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:520px){.team-grid{grid-template-columns:1fr}}
+
+    /* FOOTER */
+    footer{padding:28px 0;border-top:1px solid #064e3b;margin-top:30px;color:#94d9a7}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">NF</div>
+        <div>
+          <div style="font-size:14px;color:#bbf7d0">NovaFund</div>
+          <div style="font-size:11px;color:#6ee7b7">Ventures & Innovation</div>
+        </div>
+      </div>
+
+      <nav>
+        <a class="nav-link" href="#ventures">Ventures</a>
+        <a class="nav-link" href="#team">Team</a>
+        <a class="nav-link" href="#media">Media</a>
+        <button class="nav-cta">Apply</button>
+      </nav>
+
+      <button class="menu-btn">☰</button>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">FINTECH • DEFI • WEB3</span>
+        <h1>Backing founders reimagining global finance</h1>
+        <p class="lead">NovaFund invests in bold early‑stage teams across fintech, DeFi and infrastructure — with capital, guidance and a deep ecosystem.</p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary">Apply to NovaFund</button>
+          <a class="btn btn-outline" href="#ventures">Explore Portfolio</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><strong>120+</strong><small>Portfolio startups</small></div>
+          <div class="stat"><strong>$30M</strong><small>Capital committed</small></div>
+          <div class="stat"><strong>90+</strong><small>Monthly intros</small></div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h3>Why NovaFund?</h3>
+        <p>Capital, strategy, hiring support and technical guidance — built for Web3 and fintech founders.</p>
+        <ul style="padding-left:18px">
+          <li>Pre‑seed & seed investment</li>
+          <li>GTM acceleration & partnerships</li>
+          <li>Security & infra reviews</li>
+        </ul>
+        <button class="apply-btn">Start Application</button>
+      </aside>
+    </section>
+
+    <section id="ventures" class="section">
+      <h2>Portfolio & Investments</h2>
+      <p style="color:#a3e9c3">Startups building financial rails of the future.</p>
+
+      <div class="filters">
+        <div class="chip" data-filter="all">All</div>
+        <div class="chip" data-filter="payments">Payments</div>
+        <div class="chip" data-filter="defi">DeFi</div>
+        <div class="chip" data-filter="infra">Infra</div>
+        <div class="chip" data-filter="ai">AI / Data</div>
+      </div>
+
+      <div class="grid" id="portfolioGrid">
+        <article class="card" data-category="payments">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="width:56px;height:56px;border-radius:10px;background:#022c22;color:#4ade80;font-weight:800;display:flex;align-items:center;justify-content:center">PX</div>
+            <div>
+              <div class="title">PayX</div>
+              <div class="desc">Cross‑border payments infra simplified.</div>
+              <div class="pill">Payments</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="defi">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="width:56px;height:56px;border-radius:10px;background:#064e3b;color:#6ee7b7;font-weight:800;display:flex;justify-content:center;align-items:center">DF</div>
+            <div>
+              <div class="title">DeFine</div>
+              <div class="desc">RWA on‑chain lending primitives.</div>
+              <div class="pill">DeFi</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="infra">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="width:56px;height:56px;border-radius:10px;background:#065f46;color:#bbf7d0;font-weight:800;display:flex;justify-content:center;align-items:center">NX</div>
+            <div>
+              <div class="title">NexInfra</div>
+              <div class="desc">Low‑latency financial data feeds.</div>
+              <div class="pill">Infrastructure</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="team" class="section">
+      <h2>Our Team</h2>
+      <p style="color:#a3e9c3">Founders & operators shaping next‑gen finance.</p>
+
+      <div class="team-grid" style="margin-top:12px">
+        <div class="person">
+          <div class="avatar">AS</div>
+          <div style="font-weight:700;color:#bbf7d0">A. Sharma</div>
+          <div style="font-size:13px;color:#6ee7b7">Founder & Partner</div>
+        </div>
+        <div class="person">
+          <div class="avatar">RK</div>
+          <div style="font-weight:700;color:#bbf7d0">R. Kapoor</div>
+          <div style="font-size:13px;color:#6ee7b7">Head of Investments</div>
+        </div>
+        <div class="person">
+          <div class="avatar">MN</div>
+          <div style="font-weight:700;color:#bbf7d0">M. Nair</div>
+          <div style="font-size:13px;color:#6ee7b7">Growth & Ops</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="media" class="section">
+      <h2>Founder Stories</h2>
+      <p style="color:#a3e9c3">What our portfolio says about working with NovaFund.</p>
+
+      <div style="display:flex;gap:14px;margin-top:14px;flex-wrap:wrap">
+        <blockquote style="background:#0d1b0d;padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(34,197,94,0.08);max-width:420px;color:#d1fae5">
+          "Their GTM support unlocked enterprise channels for us."<br>
+          <small style="color:#6ee7b7">— CEO, PayX</small>
+        </blockquote>
+
+        <blockquote style="background:#0d1b0d;padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(34,197,94,0.08);max-width:420px;color:#d1fae5">
+          "Security reviews saved us months of engineering cycles."<br>
+          <small style="color:#6ee7b7">— CTO, DeFine</small>
+        </blockquote>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div style="font-weight:700;color:#6ee7b7">NovaFund © <span id="yr"></span></div>
+        <div style="color:#a3e9c3">Twitter • LinkedIn • Instagram</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

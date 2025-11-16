@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .container {
+            width: 900px;
+            height: 700px;
+            border: 2px solid black;
+            background-color: lightgray;
+            display: grid;
+            grid-template-areas: "side_a upside upside"
+                                 "side_a center_a center_b"
+                                 "side_b center_a center_b" 
+                                 "footer footer footer";
+                                 
+         
+            
+        }
+        .class {
+            border: 3px solid rgb(28, 2, 2);
+            background-color: beige;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+        #id_1{
+            grid-area: side_a;
+
+        }
+        #id_2{
+            grid-area: center_a;
+        }
+        #id_3{
+            grid-area: center_b;
+        }
+        #id_4{
+            grid-area: footer;
+        }
+        #id_5{
+            grid-area: upside;
+        }
+        #id_6{
+            grid-area: side_b;
+        }
+        
+    </style>
+</head>
+<body>
+        <h1>Grid-Area crazy concept</h1>
+        <div class="container">
+        <div class="class" id="id_1">side_a</div>
+        <div class="class" id="id_2">center_a</div>
+        <div class="class" id="id_3">center_b</div>
+        <div class="class" id="id_4">footer</div>
+        <div class="class" id="id_5">upside</div>
+        <div class="class" id="id_6">side_b</div>
+        </div>
+
+</body>
+</html>

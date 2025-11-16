@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FINALLY — Celebration</title>
+  <style>
+    /* ---------- Reset & Layout ---------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; }
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(circle at 40% 20%, #020013 0%, #000006 35%, #000 100%);
+      color: #fff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1000px;
+    }
+
+    /* ---------- BACKGLOW & MOTION ---------- */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -30%;
+      background: conic-gradient(from 0deg, #ff0080, #ff8c00, #40e0d0, #9d00ff, #ff0080);
+      filter: blur(320px);
+      opacity: 0.55;
+      transform: rotate(0deg);
+      animation: spinBg 28s linear infinite;
+      z-index: 0;
+    }
+    @keyframes spinBg { to { transform: rotate(360deg); } }
+
+    /* ---------- Canvas (fireworks) ---------- */
+    #fireworksCanvas {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* ---------- Center stage ---------- */
+    .stage {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1300px;
+      padding: 6vh 2vw 10vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+      transform-style: preserve-3d;
+    }
+
+    /* ---------- Ring aura ---------- */
+    .ring {
+      position: absolute;
+      width: min(72vmin, 900px);
+      height: min(72vmin, 900px);
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.08);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-40%);
+      filter: blur(6px);
+      animation: pulseRing 6s ease-in-out infinite;
+      z-index: 3;
+      pointer-events: none;
+    }
+    @keyframes pulseRing {
+      0%,100% { transform: translate(-50%,-40%) scale(1); opacity: .25; }
+      50% { transform: translate(-50%,-40%) scale(1.2); opacity: .9; }
+    }
+
+    /* ---------- Title ---------- */
+    h1 {
+      font-size: clamp(48px, 10vw, 140px);
+      font-weight: 900;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      line-height: 0.9;
+      margin-top: 4vh;
+      background: linear-gradient(90deg, #ff0080, #ff8c00, #40e0d0, #9d00ff, #ff0080);
+      background-size: 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease-in-out infinite, floatTitle 3.5s ease-in-out infinite;
+      text-shadow:
+        0 0 18px rgba(255,255,255,0.25),
+        0 0 80px rgba(255,0,128,0.7),
+        0 0 200px rgba(64,224,208,0.35);
+      z-index: 6;
+      user-select: none;
+      pointer-events: none;
+    }
+    @keyframes gradientShift { 0% { background-position: 0% } 50% { background-position: 100% } 100% { background-position: 0% } }
+    @keyframes floatTitle { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
+
+    /* ---------- Character container ---------- */
+    .character-wrap {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 1rem;
+      pointer-events: auto; /* character can be interactive later */
+      z-index: 7;
+      margin-top: 1vh;
+    }
+
+    /* ---------- Character styling & animation ---------- */
+    .character {
+      width: clamp(160px, 17vw, 260px);
+      transform-origin: center bottom;
+      animation: gentleBob 3.5s ease-in-out infinite;
+      filter: drop-shadow(0 30px 40px rgba(0,0,0,0.7));
+    }
+    @keyframes gentleBob {
+      0%,100% { transform: translateY(0) }
+      50% { transform: translateY(-10px) }
+    }
+
+    /* ---------- Sparkler small sparks (SVG will also animate) ---------- */
+    .sparkler {
+      display: block;
+      margin-left: 6px;
+      transform-origin: center;
+      animation: sparklerWiggle 0.9s ease-in-out infinite;
+    }
+    @keyframes sparklerWiggle { 0% { transform: rotate(0deg) } 50% { transform: rotate(6deg) } 100% { transform: rotate(0deg) } }
+
+    /* ---------- Small responsive tweaks ---------- */
+    @media (max-width:700px) {
+      h1 { letter-spacing: 6px; }
+      .ring { width: calc(100vmin - 20px); height: calc(100vmin - 20px); top: 60%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fireworks canvas -->
+  <canvas id="fireworksCanvas" aria-hidden="true"></canvas>
+
+  <!-- Ring aura -->
+  <div class="ring" aria-hidden="true"></div>
+
+  <main class="stage" role="main" aria-label="Celebration scene">
+    <h1 aria-hidden="true">FINALLY</h1>
+
+    <!-- Character: smiling Black man (cartoon SVG). He looks up and holds a sparkler -->
+    <div class="character-wrap" aria-hidden="false" aria-label="Smiling person celebrating beneath the text">
+      <svg class="character" viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="charTitle charDesc">
+        <title id="charTitle">Smiling person celebrating</title>
+        <desc id="charDesc">Cartoon smiling Black man holding a sparkler, looking up at the fireworks.</desc>
+
+        <!-- shadow under feet -->
+        <ellipse cx="150" cy="360" rx="70" ry="18" fill="rgba(0,0,0,0.55)"/>
+
+        <!-- body -->
+        <g transform="translate(0, -12)">
+          <!-- legs -->
+          <rect x="110" y="250" rx="12" ry="12" width="28" height="80" fill="#0f1724"/>
+          <rect x="162" y="250" rx="12" ry="12" width="28" height="80" fill="#0f1724"/>
+          <!-- torso -->
+          <rect x="85" y="170" rx="18" ry="18" width="130" height="120" fill="#091229"/>
+          <!-- jacket highlight -->
+          <path d="M95 180 q40 -12 110 0 v80 q-65 -18 -110 0 z" fill="rgba(255,255,255,0.02)"/>
+          <!-- arms -->
+          <g id="arms">
+            <!-- left arm (viewer right) -->
+            <path d="M80 190 q-10 40 30 48" stroke="#1b2636" stroke-width="18" stroke-linecap="round" fill="none"/>
+            <!-- right arm (viewer left) holding sparkler -->
+            <path d="M220 190 q30 30 -6 58" stroke="#1b2636" stroke-width="18" stroke-linecap="round" fill="none"/>
+          </g>
+
+          <!-- head -->
+          <g transform="translate(0,0)">
+            <ellipse cx="150" cy="110" rx="64" ry="72" fill="#3b1f0f"/> <!-- skin tone -->
+            <!-- hair (top) -->
+            <ellipse cx="150" cy="82" rx="70" ry="36" fill="#0b0b0b"/>
+            <!-- smile & eyes -->
+            <path d="M130 120 q20 20 40 0" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.95"/>
+            <circle cx="130" cy="100" r="6" fill="#fff"/>
+            <circle cx="170" cy="100" r="6" fill="#fff"/>
+            <!-- pupils -->
+            <circle cx="130" cy="100" r="2.5" fill="#000"/>
+            <circle cx="170" cy="100" r="2.5" fill="#000"/>
+            <!-- cheek blush -->
+            <ellipse cx="115" cy="118" rx="8" ry="5" fill="rgba(255,255,255,0.05)"/>
+            <ellipse cx="185" cy="118" rx="8" ry="5" fill="rgba(255,255,255,0.05)"/>
+          </g>
+
+          <!-- sparkler (right hand) -->
+          <g transform="translate(0,0)" class="sparkler" aria-hidden="true">
+            <!-- handle -->
+            <rect x="198" y="226" width="5" height="36" rx="2" fill="#b07b3b" transform="rotate(12 200 244)"/>
+            <!-- sparks group (animated via JS) -->
+            <g id="sparks" transform="translate(200,220)"></g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </main>
+
+  <script>
+    /* ---------------- FIREWORKS CANVAS ---------------- */
+    const canvas = document.getElementById('fireworksCanvas');
+    const ctx = canvas.getContext('2d');
+    let W = innerWidth, H = innerHeight;
+    function resize() { W = innerWidth; H = innerHeight; canvas.width = W; canvas.height = H; }
+    window.addEventListener('resize', resize, {passive:true});
+    resize();
+
+    // store rockets/fireworks and sparks
+    const rockets = [];
+    const sparks = [];
+
+    class Rocket {
+      constructor(x, color) {
+        this.x = x;
+        this.y = H + 10;
+        this.vy =  - (6 + Math.random() * 3);
+        this.color = color;
+        this.targetY = H * (0.15 + Math.random()*0.45);
+        this.exploded = false;
+      }
+      update() {
+        this.y += this.vy;
+        this.vy += 0.02; // slight gravity inverted (slows upward)
+        if (this.y <= this.targetY && !this.exploded) this.explode();
+      }
+      explode() {
+        this.exploded = true;
+        const hue = Math.floor(Math.random()*360);
+        const count = 70 + Math.floor(Math.random()*80);
+        for (let i=0;i<count;i++){
+          const angle = Math.random()*Math.PI*2;
+          const speed = Math.random()*5 + 1.5;
+          sparks.push(new Spark(this.x, this.y, Math.cos(angle)*speed, Math.sin(angle)*speed, `hsl(${hue + (Math.random()*60-30)},90%,60%)`));
+        }
+      }
+      draw(ctx) {
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+        ctx.arc(this.x, this.y, 3,0,Math.PI*2);
+        ctx.fill();
+        // tail
+        ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y+8);
+        ctx.lineTo(this.x, this.y+22);
+        ctx.stroke();
+      }
+    }
+
+    class Spark {
+      constructor(x,y,vx,vy,color){
+        this.x=x; this.y=y; this.vx=vx; this.vy=vy;
+        this.life = 70 + Math.random()*40;
+        this.decay = 0.92 + Math.random()*0.02;
+        this.color=color;
+        this.size = Math.random()*2.2 + 0.6;
+      }
+      update(){
+        this.vy += 0.04; // gravity
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vx *= 0.995;
+        this.vy *= 0.995;
+        this.life--;
+      }
+      draw(ctx){
+        const alpha = Math.max(0, this.life/110);
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+        ctx.fill();
+        // glow
+        ctx.globalAlpha = alpha * 0.6;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size*4.5, 0, Math.PI*2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    // animate
+    function animate() {
+      requestAnimationFrame(animate);
+      // trailing background for motion blur effect
+      ctx.fillStyle = 'rgba(0,0,0,0.18)';
+      ctx.fillRect(0,0,W,H);
+
+      // update rockets
+      for (let i = rockets.length - 1; i >= 0; i--) {
+        rockets[i].update();
+        rockets[i].draw(ctx);
+        if (rockets[i].exploded) rockets.splice(i,1);
+      }
+
+      // update sparks
+      for (let i = sparks.length - 1; i >= 0; i--) {
+        sparks[i].update();
+        sparks[i].draw(ctx);
+        if (sparks[i].life <= 0) sparks.splice(i,1);
+      }
+    }
+    animate();
+
+    // launch at intervals, sometimes multiple
+    setInterval(() => {
+      const batch = Math.random() < 0.3 ? 2 + Math.floor(Math.random()*3) : 1;
+      for (let i=0;i<batch;i++){
+        rockets.push(new Rocket(50 + Math.random()*(W-100)));
+      }
+    }, 600);
+
+    /* ---------------- SPARKLER ON SVG ---------------- */
+    // Creates little spark elements inside the SVG group with random motions
+    const sparkGroup = document.getElementById('sparks');
+    function spawnSparklerParticle() {
+      // create tiny SVG circle element
+      const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      const angle = Math.random()*Math.PI*2;
+      const dist = 6 + Math.random()*10;
+      const cx = Math.cos(angle) * (4 + Math.random()*6);
+      const cy = Math.sin(angle) * (4 + Math.random()*6) - 4;
+      const r = 1 + Math.random()*1.3;
+      c.setAttribute('cx', cx.toFixed(2));
+      c.setAttribute('cy', cy.toFixed(2));
+      c.setAttribute('r', r.toFixed(2));
+      // color variation
+      const h = Math.floor(45 + Math.random()*50);
+      c.setAttribute('fill', `hsl(${h}, 95%, ${60 + Math.random()*10}%)`);
+      c.style.opacity = '1';
+      c.style.transformOrigin = 'center';
+      // animate using CSS transitions and then remove
+      c.style.transition = `transform ${600 + Math.random()*500}ms cubic-bezier(.2,.8,.3,1), opacity ${600 + Math.random()*400}ms linear`;
+      sparkGroup.appendChild(c);
+      // force reflow then animate
+      requestAnimationFrame(() => {
+        c.style.transform = `translate(${cx*2}px, ${cy*2}px) scale(${0.2 + Math.random()*0.9}) rotate(${Math.random()*90}deg)`;
+        c.style.opacity = '0';
+      });
+      // cleanup
+      setTimeout(()=> c.remove(), 1200 + Math.random()*600);
+    }
+    // moderate rate for sparkler
+    setInterval(spawnSparklerParticle, 80);
+
+    // make scene interactive: click/tap to launch extra fireworks
+    window.addEventListener('pointerdown', (e) => {
+      const x = e.clientX || W/2;
+      for (let i=0;i<6;i++){
+        rockets.push(new Rocket(x + (Math.random()*120-60)));
+      }
+    });
+
+    // accessibility: pressing space launches a burst
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        for (let i=0;i<10;i++){
+          rockets.push(new Rocket(80 + Math.random()*(W-160)));
+        }
+      }
+    });
+  </script>
+</body>
+</html>

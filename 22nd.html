@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>hp media solutions — LED Vans & Flex Printing</title>
+  <meta name="description" content="Eye-catching LED Van advertising and premium flex printing. Red, black & white theme with live animations." />
+  <style>
+    /* ---------- Reset & base ---------- */
+    :root{
+      --red:#e11d2b;
+      --black:#0b0b0b;
+      --white:#ffffff;
+      --muted:#f5f5f5;
+      --glass: rgba(255,255,255,0.06);
+      --card-shadow: 0 8px 24px rgba(11,11,11,0.45);
+      --accent-grad: linear-gradient(90deg,var(--red),#ff6b6b);
+      --mono: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:var(--mono);background:linear-gradient(180deg,#070707 0%, #0d0d0d 60%);color:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    }
+
+    /* ---------- Top bar / logo ---------- */
+    header{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(0,0,0,0.45),transparent);backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+    .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo svg{width:56px;height:56px}
+    .brand{font-weight:700;font-size:18px;letter-spacing:0.4px}
+    nav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:18px;font-weight:600}
+    nav a.cta{background:var(--accent-grad);padding:10px 14px;border-radius:12px;color:#fff}
+
+    /* ---------- Hero ---------- */
+    .hero{max-width:1200px;margin:36px auto;padding:28px;display:grid;grid-template-columns:1fr 460px;gap:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;padding:28px;box-shadow:var(--card-shadow);border:1px solid rgba(255,255,255,0.04)}
+    .hero h1{margin:0;font-size:36px;line-height:1.02}
+    .hero p{color:#e9e9e9;margin-top:12px}
+    .buttons{margin-top:18px;display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:12px;font-weight:700;border:0;cursor:pointer}
+    .btn.btn-light{background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--white)}
+    .btn.btn-primary{background:var(--accent-grad);color:#fff;box-shadow:0 6px 18px rgba(225,29,43,0.2)}
+
+    /* ---------- Animated LED Van mock ---------- */
+    .van-wrap{position:relative;background:linear-gradient(90deg,#111 0%, rgba(255,255,255,0.02) 100%);border-radius:14px;padding:16px;height:320px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .van{width:420px;height:220px;position:relative;border-radius:12px;background:linear-gradient(180deg,#202020,#111);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    .van .cab{position:absolute;left:0;top:34%;width:26%;height:46%;background:linear-gradient(180deg,#2a2a2a,#151515);border-top-right-radius:18px;border-bottom-right-radius:18px}
+    .wheel{position:absolute;bottom:-6px;width:70px;height:70px;background:radial-gradient(circle at 30% 30%, #666,#111);border-radius:50%;left:30%;box-shadow:inset 0 -6px 12px rgba(0,0,0,0.6)}
+    .wheel.r{left:72%}
+    /* LED screen area */
+    .screen{position:absolute;left:28%;top:18%;width:64%;height:60%;border-radius:6px;background:#000;overflow:hidden;border:4px solid rgba(255,255,255,0.03)}
+    .led-row{display:flex;gap:6px;padding:8px}
+    .led-dot{width:8px;height:8px;border-radius:50%;background:#200;box-shadow:0 0 8px rgba(255,0,0,0.02)}
+    /* generate LED columns via JS/CSS with animation */
+
+    /* marquee text across LED screen */
+    .marquee{position:absolute;left:30%;top:46%;width:60%;height:14%;overflow:hidden}
+    .marquee .line{white-space:nowrap;font-weight:800;font-size:18px;letter-spacing:1px;padding-left:100%;display:inline-block;animation:marq 10s linear infinite}
+    @keyframes marq{0%{transform:translateX(0%)}100%{transform:translateX(-120%)} }
+
+    /* glowing accent shapes */
+    .glow{position:absolute;right:-120px;top:-60px;width:240px;height:240px;border-radius:50%;filter:blur(42px);opacity:0.28;background:var(--accent-grad);transform:rotate(12deg)}
+    .glow-2{left:-100px;bottom:-120px;width:180px;height:180px;background:linear-gradient(90deg,#a21822,#ff8a8a);opacity:0.14}
+
+    /* ---------- Services & grid ---------- */
+    .services{max-width:1200px;margin:24px auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 20px rgba(0,0,0,0.5)}
+    .card h3{margin:6px 0}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:700}
+
+    /* ---------- Portfolio / flex printing samples ---------- */
+    .portfolio{max-width:1200px;margin:28px auto;padding:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .portfolio .item{height:160px;border-radius:12px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.04)}
+    .item .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.4));display:flex;align-items:flex-end;padding:12px;font-weight:800}
+    .item:hover{transform:translateY(-6px) scale(1.02);transition:all .32s ease}
+
+    /* ---------- Testimonials carousel (simple) ---------- */
+    .testimonials{max-width:900px;margin:28px auto;padding:18px;display:flex;gap:12px;align-items:center}
+    .testimonial{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+
+    /* ---------- Footer ---------- */
+    footer{margin-top:36px;padding:28px 0;background:linear-gradient(180deg,rgba(0,0,0,0.24),transparent);border-top:1px solid rgba(255,255,255,0.03)}
+    .container{max-width:1200px;margin:0 auto;padding:0 16px}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.van-wrap{height:260px}.portfolio{grid-template-columns:repeat(2,1fr)}.services{grid-template-columns:repeat(2,1fr)}nav a{display:none}.nav{justify-content:space-between}}
+    @media (max-width:520px){.portfolio{grid-template-columns:1fr}.services{grid-template-columns:1fr}.hero h1{font-size:26px}}
+
+    /* small flourish animations */
+    .floaty{animation:floaty 6s ease-in-out infinite}
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="logo">
+        <!-- Inline stylized HP-like logo (generic letters 'HP') -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#e11d2b"/>
+              <stop offset="1" stop-color="#ff6b6b"/>
+            </linearGradient>
+          </defs>
+          <rect width="100" height="100" rx="18" fill="#0b0b0b" />
+          <text x="50%" y="54%" text-anchor="middle" font-size="42" font-weight="800" fill="url(#g1)" font-family="Segoe UI, Roboto, Arial">hp</text>
+          <circle cx="84" cy="16" r="6" fill="rgba(255,255,255,0.06)" />
+        </svg>
+        <div>
+          <div class="brand">hp media solutions</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.55)">LED Vans • Flex Printing • Outdoor Media</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact" class="cta">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-card">
+        <h1>Make your brand move — LED van campaigns & premium flex printing</h1>
+        <p>We craft attention-grabbing mobile displays and high-impact flex prints that convert. Full design, production and on-road activation — tailored to Indian & international markets.</p>
+        <div class="buttons">
+          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Quote</button>
+          <button class="btn btn-light" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View Work</button>
+        </div>
+
+        <div style="margin-top:20px;display:flex;gap:14px;align-items:center">
+          <div style="display:flex;flex-direction:column">
+            <span style="font-weight:800;font-size:22px">98%</span>
+            <small style="color:rgba(255,255,255,0.6)">Campaign success rate</small>
+          </div>
+          <div style="display:flex;flex-direction:column">
+            <span style="font-weight:800;font-size:22px">200+</span>
+            <small style="color:rgba(255,255,255,0.6)">Large-format prints made</small>
+          </div>
+          <div style="display:flex;flex-direction:column">
+            <span style="font-weight:800;font-size:22px">50+</span>
+            <small style="color:rgba(255,255,255,0.6)">LED vans in fleet</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="van-wrap floaty">
+        <div class="glow"></div>
+        <div class="glow-2"></div>
+        <div class="van" aria-hidden="true">
+          <div class="cab"></div>
+          <div class="wheel"></div>
+          <div class="wheel r"></div>
+
+          <div class="screen" id="screen">
+            <!-- LED dot grid will be generated by JS -->
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;gap:3px;padding:8px" id="ledGrid"></div>
+          </div>
+
+          <div class="marquee" aria-hidden="true">
+            <div class="line">NOW BOOKING • FESTIVAL CAMPAIGNS • LAUNCH EVENTS • FESTIVE OFFERS • REDDRIVE.AD</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services container">
+      <div class="card">
+        <div class="badge">Mobile LED</div>
+        <h3>LED Van Campaigns</h3>
+        <p>High-brightness LED panels on vans, live video playback, motion-triggered loops and geo-targeted routes for city-wide reach.</p>
+      </div>
+      <div class="card">
+        <div class="badge">Print Studio</div>
+        <h3>Flex & Hoardings</h3>
+        <p>Premium flex printing, weatherproof lamination, large hoardings and retail wraps — vivid colours, razor-sharp detail.</p>
+      </div>
+      <div class="card">
+        <div class="badge">Design</div>
+        <h3>Creative & Motion</h3>
+        <p>End-to-end creative: static layouts, animated LED-ready sequences, and campaign strategy to maximize impressions.</p>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio container">
+      <!-- sample flex prints (CSS backgrounds that look like prints) -->
+      <div class="item" style="background:linear-gradient(135deg,#3b0f0f,#6b0b12);"><div class="overlay">Festival Spotlight Flex</div></div>
+      <div class="item" style="background:linear-gradient(135deg,#0b1226,#0d2b3a);"><div class="overlay">Retail Launch Hoarding</div></div>
+      <div class="item" style="background:linear-gradient(135deg,#23110f,#4b0d0c);"><div class="overlay">LED Van Campaign</div></div>
+      <div class="item" style="background:linear-gradient(135deg,#1b1b1b,#4b4b4b);"><div class="overlay">Billboard - Night Mode</div></div>
+    </section>
+
+    <section class="container">
+      <div class="testimonials">
+        <div class="testimonial">
+          <strong>“Amazing visibility — our product launch got noticed immediately.”</strong>
+          <div style="margin-top:8px;color:rgba(255,255,255,0.6)">— Karan Mehta, Marketing Head</div>
+        </div>
+        <div class="testimonial">
+          <strong>“Top-notch printing and on-time delivery.”</strong>
+          <div style="margin-top:8px;color:rgba(255,255,255,0.6)">— Priya Sharma, Retail Owner</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container" style="margin-top:30px;">
+      <div style="max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start">
+        <div class="hero-card">
+          <h2 style="margin-top:0">Let's plan your campaign</h2>
+          <p style="color:rgba(255,255,255,0.7)">Tell us about your event or product. We'll propose routes, visuals and a campaign estimate within 24 hours.</p>
+
+          <form id="contactForm" onsubmit="handleSubmit(event)" style="display:grid;gap:10px;margin-top:12px">
+            <input name="name" required placeholder="Your name" style="padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white)"/>
+            <input name="email" type="email" required placeholder="Email" style="padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white)"/>
+            <input name="phone" placeholder="Phone / WhatsApp" style="padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white)"/>
+            <textarea name="message" placeholder="Tell us about your campaign (event, dates, city)" rows="4" style="padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white)"></textarea>
+            <div style="display:flex;gap:10px">
+              <button class="btn btn-primary" type="submit">Send Request</button>
+              <button type="button" class="btn btn-light" onclick="window.print()">Print</button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="hero-card">
+          <h3 style="margin-top:0">Quick Pricing</h3>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+            <div style="display:flex;justify-content:space-between"><div>LED Van (per day)</div><div style="font-weight:800">₹18,000+</div></div>
+            <div style="display:flex;justify-content:space-between"><div>Flex Printing (per sq.ft)</div><div style="font-weight:800">₹65+</div></div>
+            <div style="display:flex;justify-content:space-between"><div>Creative + Motion</div><div style="font-weight:800">From ₹6,000</div></div>
+          </div>
+
+          <div style="margin-top:16px;background:rgba(255,255,255,0.02);padding:10px;border-radius:8px">
+            <strong>Need bulk prints?</strong>
+            <p style="margin:6px 0;color:rgba(255,255,255,0.6)">Get a custom quote for festivals and national campaigns.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div style="display:flex;align-items:center;gap:12px"><svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="12" fill="#0b0b0b"/><text x="50%" y="58%" text-anchor="middle" font-size="28" font-weight="800" fill="#e11d2b" font-family="Segoe UI, Roboto, Arial">hp</text></svg>
+      <div style="font-weight:800">hp media solutions</div></div>
+      <div style="color:rgba(255,255,255,0.6)">© <span id="yr"></span> hp media solutions — All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // set year
+    document.getElementById('yr').innerText = new Date().getFullYear();
+
+    // Build LED grid (rows x cols) and animate dots
+    const ledGrid = document.getElementById('ledGrid');
+    const rows = 9; const cols = 34; // compact LED matrix look
+    function createGrid(){
+      ledGrid.innerHTML='';
+      for(let r=0;r<rows;r++){
+        const row = document.createElement('div');
+        row.className='led-row';
+        row.style.marginBottom='2px';
+        for(let c=0;c<cols;c++){
+          const d = document.createElement('div');
+          d.className='led-dot';
+          d.style.width='8px'; d.style.height='8px';
+          // initial color
+          d.style.background = 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,0,0,0.9))';
+          row.appendChild(d);
+        }
+        ledGrid.appendChild(row);
+      }
+    }
+    createGrid();
+
+    // Animate LED: simple scanning & random sparkle
+    function animateLED(){
+      const dots = Array.from(document.querySelectorAll('.led-dot'));
+      const t = Date.now();
+      dots.forEach((dot, i)=>{
+        const x = i % cols; const y = Math.floor(i/cols);
+        // wave brightness
+        const wave = (Math.sin((x*0.6) + (t/400) + (y*0.8)) + 1)/2; // 0..1
+        const intensity = 0.2 + wave*0.9;
+        // color shift
+        const r = Math.floor(200*intensity + 55);
+        const g = Math.floor(20*intensity);
+        const b = Math.floor(20*intensity);
+        dot.style.background = `radial-gradient(circle at 30% 30%, rgba(255,255,255,${0.7*intensity}), rgba(${r},${g},${b},${0.95*intensity}))`;
+        // occasional spark
+        if(Math.random() < 0.002) dot.style.transform = 'scale(1.6)';
+        else dot.style.transform = 'scale(1)';
+      });
+      requestAnimationFrame(animateLED);
+    }
+
+    // start
+    requestAnimationFrame(animateLED);
+
+    // contact handler (demo only)
+    function handleSubmit(e){
+      e.preventDefault();
+      const f = e.target;
+      const data = {name:f.name.value,email:f.email.value,phone:f.phone.value,message:f.message.value};
+      // show a friendly toast
+      alert('Thanks '+(data.name||'there')+" — we'll contact you soon!\n(You can replace alert with real API call.)");
+      f.reset();
+    }
+
+    // tiny entrance animation
+    window.addEventListener('load',()=>{
+      document.querySelectorAll('.hero-card, .card, .item, .testimonial').forEach((el,i)=>{
+        el.style.opacity=0;el.style.transform='translateY(12px)';
+        setTimeout(()=>{el.style.transition='all .6s cubic-bezier(.2,.9,.3,1)';el.style.opacity=1;el.style.transform='translateY(0)';}, 120*i);
+      });
+    });
+  </script>
+</body>
+</html>

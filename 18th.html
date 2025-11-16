@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Table Example</title>
+  
+</head>
+<body>
+    <h1><mark>JEE Mains registration</mark></h1>
+    <p>Fill in the form below top registration for the  JEE Mains. </p>
+    <form action="#" method="get">
+        <label for="namehai">Full name* </label>
+        <br>
+        <input type="text" name="Full name" required id ="namehai">
+        <br>
+        <label for ="emailhai">Email Address*</label>
+        <br>
+        <input id ="emailhai" type="email">
+        <br>
+        <label>Phone Number(Optional)</label>
+        <br>
+        <input type="number">
+        <br>
+        <label>City*</label>
+        <br>
+        <input type="text">
+        <br>
+        <label>State*</label>
+        <br>
+        <input type="text">
+        <br>
+        <label>Country*</label>
+        <br>
+        <input type="text">
+        <br>
+        <label>date</label>
+        <br>
+        <input type="date" name="date"  max="2025-10-17" min="2025-10-07">
+        <br>
+        <label>Caste*</label>
+        <br>
+        <select name="Caste">
+            <option value="General">General</option>
+            <option value="OBC">OBC</option>
+            <option value="SC(hum bhim ke deewane hai)">SC(hum bhim ke deewane hai)</option>
+            <option value="ST">ST</option>
+        </select>
+        <br>
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="fullname">Your name</label>
+            <br>
+            <input id="fullname" type="text" placeholder="Enter your name">
+            <br>
+            <label for="">Your age</label>
+            <br>
+            <input type="number">
+        </fieldset>
+        <fieldset>
+            <legend>Diet Preferences</legend>
+            <label for="Veg">Vegetarian</label>
+            <input id="Veg" type="radio">
+            <label for="nonveg">Non-Vegetarian</label>
+            <input id="nonveg" type="radio">
+            <br>
+
+        </fieldset>
+        <textarea name="" id="" rows="3" cols="50"></textarea>
+        <input type="color">
+        <input type="range" min="0" max="10000" value="5000">
+
+        <br>
+        <label>Location Preferences</label>
+        <br>
+        <input type ="radio" name="Location1" value="Physical"><label>Physical</label>
+        <input type ="radio" name="Location1" value="Online"><label>Online</label>
+        <br>
+        <label>Location</label>
+        <br>
+        <input type="checkbox" name="Location" value="Delhi"><label>Delhi</label>
+        <input type="checkbox" name="Location" value="Noida"><label>Noida</label>
+        <input type="checkbox" name="Location" value="Lucknow"><label>Lucknow</label>
+        <BR>
+        <button style="background-color: rgb(33, 126, 213);"><span style="color:cyan" >SUBMIT</span></button>
+    </form>
+</body>
+</html>
