@@ -3,32 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CREDeX - Redesigned</title>
+  <title>CREDeX</title>
+
   <link rel="icon" type="image/svg+xml" href="images/ChatGPT Image Nov 16, 2025, 10_46_49 PM.png" />
-<link rel="alternate icon" href="images/ChatGPT Image Nov 16, 2025, 10_46_49 PM.png" />
+  <link rel="alternate icon" href="images/ChatGPT Image Nov 16, 2025, 10_46_49 PM.png" />
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: rgb(1,2,2);
-      color: #bbf7d0;
+      color: rgb(187, 247, 208);
+      transition:  0.3s ease;
+    }
+    body.light-mode {
+      background: white;
+      color: black;
     }
 
     header {
       position: fixed;
       top: 0;
-      left: 0;
-      width: 97%;
-      background: black;
-      color: white;
+      left: 0;width: 97%;
+      background: black;color: white;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: space-between;align-items: center;
       padding: 15px 30px;
-      box-shadow: 0px 2px 8px rgba(0, 255, 100, 0.2);
-    }
-
+      box-shadow: 0px 2px 8px rgba(3, 106, 44, 0.2);}
     .logo-container {
       display: flex;
       align-items: center;
@@ -37,11 +38,10 @@
 
     .logo-img {
       width: 45px;
-      height: 45px;
-      border-radius: 50%;
+      height: 45px; border-radius: 50%;
       object-fit: cover;
-      border: 2px solid #0fd419;
-      box-shadow: 0px 0px 6px rgba(15,212,25,0.4);
+      border: 2px solid rgb(15, 212, 25);
+      box-shadow: 0px 0px 6px rgba(13, 209, 22, 0.4);
     }
 
     .logo {
@@ -50,7 +50,6 @@
       text-decoration: none;
       color: white;
     }
-
     .logo:hover {
       color: #0fd419;
     }
@@ -70,73 +69,105 @@
       border-radius: 5px;
       transition: 0.2s;
     }
-
     nav ul li a:hover {
       background: #0fd419;
-      color: #000;
+      color: black;
     }
 
+    .theme-btn {
+      background: rgb(15, 212, 25);
+      color: black;
+      padding: 7px 14px;
+      border: none;
+      border-radius: 6px;cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .theme-btn:hover {
+      background: white;
+      color: black;}
     .section-title {
       text-align: center;
       margin-top: 120px;
       font-size: 32px;
+      color: rgb(15, 212, 25);}
+    .stock-calculator {
+      max-width: 400px;
+      margin: 20px auto 40px;
+      padding: 25px;
+      background: #011a11;
+      border: 1px solid #03331f;border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,255,100,0.2);
+      color: rgb(187, 247, 208);display: flex;flex-direction: column;
+      gap: 15px;
+    }
+
+    .stock-calculator{
+      font-weight: bold;
+      color: rgb(15, 212, 25);
+    }
+
+    .stock-calculator input {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #03331f;
+      background: #011a11;
+      color: rgb(187, 247, 208);
+      transition: 0.2s;}
+    .calc-btn {
+      background: #0fd419;
+      color: black;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;}
+    .calc-btn:hover {
+      background: white;}
+
+    .result {
+      text-align: center;
+      font-size: 18px;
       color: #0fd419;
     }
 
     .hero {
-      margin-top: 120px;
+      margin-top: 40px;
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 40px;
-      padding: 40px;
-      background: linear-gradient(to right, #011a11, #01331d);
+      align-items: center;gap: 40px;
+      padding: 40px;background: linear-gradient(to right, #011a11, #01331d);
       border-radius: 18px;
       max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 0 15px rgba(15, 212, 25, 0.25);
+      margin-left: auto;margin-right: auto;box-shadow: 0 0 15px rgba(15, 212, 25, 0.25);
     }
-
     .hero img {
       width: 55%;
-      border-radius: 15px;
-      box-shadow: 0px 0px 15px rgba(0,255,100,0.2);
+      border-radius: 15px;box-shadow: 0px 0px 15px rgba(0,255,100,0.2);
     }
-
     .hero-text {
       max-width: 400px;
     }
-
     .hero-text h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: 42px;margin-bottom: 10px;
       color: #0fd419;
     }
-
     .hero-text p {
       font-size: 18px;
       margin-bottom: 20px;
     }
-
     .cta-btn {
       background: #09740f;
       padding: 12px 20px;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      cursor: pointer;
+      border: none;border-radius: 6px;
+      color: white;cursor: pointer;
       font-size: 16px;
     }
-
     .why-section {
       max-width: 1100px;
-      margin: 60px auto;
-      display: grid;
+      margin: 60px auto;display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 25px;
     }
-
     .why-box {
       background: #011a11;
       padding: 25px;
@@ -145,30 +176,23 @@
       border-left: 4px solid #0fd419;
       border-right: 4px solid #0fd419;
     }
-
-
     .portfolio-cards {
       max-width: 1100px;
-      margin: 40px auto;
-      display: grid;
+      margin: 40px auto;display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
-
     .card {
       background: #011a11;
-      padding: 20px;
-      border-radius: 12px;
+      padding: 20px;border-radius: 12px;
       border: 1px solid #03331f;
       transition: 0.3s;
     }
-
     .card:hover {
       transform: translateY(-5px);
-      border-color: #0fd419;
+      border-color: rgb(15, 212, 25);
       box-shadow: 0 0 12px rgba(15,212,25,0.3);
     }
-
 
     .team-grid {
       max-width: 900px;
@@ -182,8 +206,7 @@
       background: #011a11;
       padding: 20px;
       border-radius: 10px;
-      text-align: center;
-      border: 1px solid #022015;
+      text-align: center;border: 1px solid #022015;
     }
 
     .team-card:hover{
@@ -195,13 +218,9 @@
     .app-banner {
       margin-top: 60px;
       background: #13711b;
-      padding: 50px;
-      border-radius: 20px;
-      max-width: 1200px;
-      margin-left: auto;
+      padding: 50px;border-radius: 20px;max-width: 1200px;margin-left: auto;
       margin-right: auto;
-      display: flex;
-      justify-content: space-between;
+      display: flex;justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 30px;
@@ -211,7 +230,6 @@
       width: 300px;
       border-radius: 18px;
     }
-
     .footer {
       margin-top: 40px;
       text-align: center;
@@ -237,9 +255,25 @@
         <li><a href="contactus.html">Contact Us</a></li>
       </ul>
     </nav>
+    <button class="theme-btn" onclick="change()">Light Mode</button>
   </header>
 
   <h2 class="section-title">Empowering the Next Generation of Founders</h2>
+
+  <div class="stock-calculator">
+    <label for="buy">Buy Price (per share):</label>
+<input type="number" id="buy" placeholder="Enter buy price">
+
+    <label for="sell">Sell Price (per share):</label>
+    <input type="number" id="sell" placeholder="Enter sell price">
+
+    <label for="qty">Quantity:</label>
+    <input type="number" id="qty" placeholder="Enter quantity">
+
+    <button onclick="calculate()" class="calc-btn">Calculate</button>
+
+    <h3 id="result" class="result"></h3>
+  </div>
 
   <section class="hero">
     <img src="https://thumbs.dreamstime.com/b/bitcoin-price-appreciation-concept-illustration-green-arrow-alongside-silver-paper-forex-chart-points-to-upward-trend-385251512.jpg" />
@@ -273,7 +307,7 @@
   <section class="team-grid">
     <div class="team-card"><strong>Saksham Paliwal</strong><br>Founder</div>
     <div class="team-card"><strong>H. Paliwal</strong><br>Investments Lead</div>
-    <div class="team-card"><strong>R. paliwal</strong><br>Ops & Growth</div>
+    <div class="team-card"><strong>R. Paliwal</strong><br>Ops & Growth</div>
   </section>
 
   <section class="app-banner">
@@ -289,6 +323,32 @@
   </section>
 
   <footer class="footer">CREDeX © 2025</footer>
+
+  <script>
+    function calculate() {
+      let buy = Number(document.getElementById("buy").value);
+      let sell = Number(document.getElementById("sell").value);
+      let qty = Number(document.getElementById("qty").value);
+
+      let CP = buy * qty;
+      let SP = sell * qty;
+
+      if (SP > CP) {
+          document.getElementById("result").innerText =
+          "Profit = ₹" + (SP - CP);
+      } else if (CP > SP) {
+          document.getElementById("result").innerText =
+          "Loss = ₹" + (CP - SP);
+      } else {
+          document.getElementById("result").innerText =
+          "No Profit No Loss";
+      }
+    }
+
+    function change() {
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
 
 </body>
 </html>

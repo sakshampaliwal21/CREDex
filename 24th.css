@@ -22,7 +22,7 @@ p{
 #dopahar > p {
     color: brown;
 }
-h5 :hover{
+h5:hover{
     color: rgb(49, 196, 229);
 }
 input:focus{

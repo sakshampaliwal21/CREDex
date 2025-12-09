@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aside Example</title>
+
+  <style>
+    .container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      font-family: Arial, sans-serif;
+    }
+
+    main {
+      flex: 2; /* Main content gets more space */
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    aside {
+      flex: 1; /* Sidebar smaller */
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <main>
+      <h1>Welcome to My Blog</h1>
+      <p>
+        This is the main article section. It contains the core content of the 
+        page. Flexbox helps align this area next to the sidebar easily.
+      </p>
+    </main>
+
+    <aside>
+      <h2>Sidebar</h2>
+      <ul>
+        <li>Related Post 1</li>
+        <li>Related Post 2</li>
+        <li>Related Post 3</li>
+      </ul>
+    </aside>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title>
+    <style>
+    body{
+        display:flex;
+        height:100vh;
+        justify-content: center;
+        align-items: center;
+    } 
+    div:after{content:"Intelligent";
+    animation: change 4s ease-in;background-color: blue;color: white;
+    padding:0 10px;
+    margin-left: 25px;
+
+    }
+    @keyframes change{
+        0%{
+            content:"Intelligent"
+        }
+        25%{
+            content: "Disciplined";
+        }
+        50%{
+            content:"Talkative"
+        }
+        100%{
+            content:"Sleepy"
+        }
+        
+    }
+        
+    </style>
+</head>
+<body>
+        <div>Section B is</div>
+
+</body>
+</html>
